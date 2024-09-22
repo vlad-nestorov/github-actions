@@ -1,8 +1,9 @@
 on:
-  workflow_call:
+  push:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-     - run: echo hello
+      - run: |
+          echo Hello World

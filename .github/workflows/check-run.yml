@@ -1,6 +1,0 @@
-on:
-  push:
-
-jobs:
-  nested:
-    uses: ./.github/workflows/nested.yml
