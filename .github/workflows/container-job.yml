@@ -7,5 +7,15 @@ jobs:
     container:
       image: busybox
     steps:
-      - run: |
-          echo Hello World
+      - id: setup
+        name: Simulate long running process
+        run: |
+          echo Sleeping for 600s
+          sleep 600
+          echo "reached-end=true" >> $GITHUB_OUTPUT
+
+      - name: Check result
+        run: |
+          ps -ef
+          [ -n "${{ steps.setup.outputs.reached-end }}" ]
+        
