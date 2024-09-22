@@ -4,6 +4,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: busybox
     steps:
       - run: |
           echo Hello World
