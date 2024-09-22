@@ -15,7 +15,9 @@ jobs:
           echo "reached-end=true" >> $GITHUB_OUTPUT
 
       - name: Check result
+        env:
+          REACHED_END: ${{ steps.setup.outputs.reached-end }}
         run: |
           ps -ef
-          [ -n "${{ steps.setup.outputs.reached-end }}" ]
+          [ -n "$REACHED_END" ]
         
